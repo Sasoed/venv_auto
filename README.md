@@ -4,11 +4,11 @@
 
 Run `vvv` anywhere down the directories hierarchy where there a venv around.
 
-```
+```sh
 ~ $ cd Projects/Superproject/Source/backend/
 backend $ vvv
 Activated: /Users/Anatoly/Projects/Superproject/venv/bin/activate
-(venv) $ ./manage.py runserver
+(venv) backend $ ./manage.py runserver
 ...
 ```
 
