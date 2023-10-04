@@ -2,11 +2,11 @@
 
 ## Usage
 
-Run `vvv` anywhere down the directories hierarchy where there a venv around.
+Run `vv` anywhere down the directories hierarchy where there a venv around.
 
 ```sh
 ~ $ cd Projects/Superproject/Source/backend/
-backend $ vvv
+backend $ vv
 Activated: /Users/Anatoly/Projects/Superproject/venv/bin/activate
 (venv) backend $ ./manage.py runserver
 ...
@@ -20,7 +20,7 @@ Add this to your `~/.bashrc` or `~/.zshrc`:
 
 
 ```sh
-function vvv {
+function vv {
     D=`pwd`
     local FILE="venv/bin/activate"
 
@@ -39,4 +39,26 @@ function vvv {
     cd $D
     return
 }
+```
+
+
+Or add this to your `~/.config/fish/config.fish`:
+
+```fish
+function vv
+    set -l D (pwd)
+    set -l FILE "venv/bin/activate.fish"
+
+    while test "$PWD" != "/"
+        if test -f $FILE
+            source $FILE
+            echo "Activated: "(pwd)/$FILE
+            cd $D
+            return
+        end
+        cd ..
+    end
+    echo "$FILE not found"
+    cd $D
+end
 ```
