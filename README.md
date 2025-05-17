@@ -70,10 +70,10 @@ function vv
         cd ..
     end
     cd $D
-    read -r -p "$FILE not found, do you want to create venv? [y/N]" ans
-    switch %ans
+    read -l -P "$FILE not found, do you want to create venv? [y/N] " ans
+    switch $ans
         case y Y
-            if python3 -m venv venv; then
+            if python3 -m venv venv
                 source $FILE
                 echo "$FILE was created and activated"
                 return 0
